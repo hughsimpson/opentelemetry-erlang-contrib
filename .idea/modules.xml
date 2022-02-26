@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/examples/basic_elixir/basic_elixir.iml" filepath="$PROJECT_DIR$/examples/basic_elixir/basic_elixir.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/basic_phoenix_ecto/demo.iml" filepath="$PROJECT_DIR$/examples/basic_phoenix_ecto/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/instrumentation/opentelemetry_ecto/opentelemetry_ecto.iml" filepath="$PROJECT_DIR$/instrumentation/opentelemetry_ecto/opentelemetry_ecto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/instrumentation/opentelemetry_oban/opentelemetry_oban.iml" filepath="$PROJECT_DIR$/instrumentation/opentelemetry_oban/opentelemetry_oban.iml" />
+      <module fileurl="file://$PROJECT_DIR$/instrumentation/opentelemetry_phoenix/opentelemetry_phoenix.iml" filepath="$PROJECT_DIR$/instrumentation/opentelemetry_phoenix/opentelemetry_phoenix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/instrumentation/opentelemetry_redix/opentelemetry_redix.iml" filepath="$PROJECT_DIR$/instrumentation/opentelemetry_redix/opentelemetry_redix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utilities/opentelemetry_telemetry/opentelemetry_telemetry.iml" filepath="$PROJECT_DIR$/utilities/opentelemetry_telemetry/opentelemetry_telemetry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/otel_contrib_tests.iml" filepath="$PROJECT_DIR$/otel_contrib_tests.iml" />
+    </modules>
+  </component>
+</project>
