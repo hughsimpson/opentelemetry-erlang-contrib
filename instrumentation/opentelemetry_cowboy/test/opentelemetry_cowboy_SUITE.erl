@@ -70,7 +70,8 @@ successful_request(_Config) ->
     {ok, {{_Version, 200, _ReasonPhrase}, _Headers, _Body}} =
         httpc:request(get, {"http://localhost:8080/success", Headers}, [], []),
     receive
-        {span, #span{name=Name,attributes=Attributes,parent_span_id=ParentSpanId}} ->
+        {span, #span{name=Name,attributes=Attributes,parent_span_id=ParentSpanId,status=Status}} ->
+            ?assertEqual(opentelemetry:status(?OTEL_STATUS_OK, <<"">>), Status),
             ?assertEqual(<<"HTTP GET">>, Name),
             ?assertEqual(13235353014750950193, ParentSpanId),
             ExpectedAttrs = #{
@@ -121,9 +122,10 @@ failed_request(_Config) ->
     {ok, {{_Version, 500, _ReasonPhrase}, _Headers, _Body}} =
         httpc:request(get, {"http://localhost:8080/failure", []}, [], []),
     receive
-        {span, #span{name=Name,events=Events,attributes=Attributes,parent_span_id=undefined}} ->
+        {span, #span{name=Name,events=Events,attributes=Attributes,parent_span_id=undefined,status=Status}} ->
             [Event] = otel_events:list(Events),
             #event{name= <<"exception">>} = Event,
+            ?assertEqual(opentelemetry:status(?OTEL_STATUS_ERROR, <<"">>), Status),
             ?assertEqual(<<"HTTP GET">>, Name),
             ExpectedAttrs = #{
                              'http.client_ip' => <<"127.0.0.1">>,

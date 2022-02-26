@@ -65,7 +65,8 @@ handle_event([cowboy, request, stop], Measurements, Meta, _Config) ->
             otel_span:set_attribute(Ctx, 'http.status', Status),
             otel_span:set_status(Ctx, opentelemetry:status(?OTEL_STATUS_ERROR, <<"">>));
         Status when Status < 400 ->
-            otel_span:set_attribute(Ctx, 'http.status', Status)
+            otel_span:set_attribute(Ctx, 'http.status', Status),
+            otel_span:set_status(Ctx, opentelemetry:status(?OTEL_STATUS_OK, <<"">>))
     end,
     otel_telemetry:end_telemetry_span(?TRACER_ID, Meta),
     otel_ctx:clear();
